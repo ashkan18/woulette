@@ -1,0 +1,23 @@
+<h2>Show user bet</h2>
+
+<ul>
+
+  <li>
+    <strong>User:</strong>
+    <%= @user_bet.user_id %>
+  </li>
+
+  <li>
+    <strong>Bet:</strong>
+    <%= @user_bet.bet_id %>
+  </li>
+
+  <li>
+    <strong>Bet date:</strong>
+    <%= @user_bet.bet_date %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: user_bet_path(@conn, :edit, @user_bet) %>
+<%= link "Back", to: user_bet_path(@conn, :index) %>

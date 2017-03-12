@@ -1,0 +1,30 @@
+<h2>Listing user bets</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Bet</th>
+      <th>Bet date</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for user_bet <- @user_bets do %>
+    <tr>
+      <td><%= user_bet.user_id %></td>
+      <td><%= user_bet.bet_id %></td>
+      <td><%= user_bet.bet_date %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: user_bet_path(@conn, :show, user_bet), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: user_bet_path(@conn, :edit, user_bet), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: user_bet_path(@conn, :delete, user_bet), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New user bet", to: user_bet_path(@conn, :new) %>

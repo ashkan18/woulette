@@ -1,0 +1,23 @@
+<h2>Show bet</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @bet.name %>
+  </li>
+
+  <li>
+    <strong>Type:</strong>
+    <%= @bet.type %>
+  </li>
+
+  <li>
+    <strong>Score:</strong>
+    <%= @bet.score %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: bet_path(@conn, :edit, @bet) %>
+<%= link "Back", to: bet_path(@conn, :index) %>
