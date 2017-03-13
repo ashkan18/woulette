@@ -12,7 +12,7 @@ defmodule Woulette.Schema.Types do
 
   object :user_bet do
     field :bet, :bet
-    field :bet_date, :string
+    field :bet_date, :date
   end
 
   object :bet do
@@ -21,9 +21,9 @@ defmodule Woulette.Schema.Types do
     field :score, non_null(:integer)
   end
 
-  scalar :time do
-    description "ISOz time",
-    parse &Timex.parse(&1, "{ISOz}")
-    serialize &Timex.format!(&1, "{ISOz}")
+  scalar :date do
+    description "ISOz date",
+    parse &Ecto.Date.cast/1
+    serialize &Ecto.Date.to_string/1
   end
 end
